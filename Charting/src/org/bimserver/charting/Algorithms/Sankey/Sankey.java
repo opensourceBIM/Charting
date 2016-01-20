@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms.Sankey;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Algorithms.Sankey;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class Sankey {
 		// Walk list.
 		while (copy.size() > 0) {
 			SankeyNode node = copy.pop();
-			int thisX = (int)node.Location.x();
+			int thisX = (int)node.Location.x;
 			// If current x is not same as this, start new sub-list.
 			if (currentX == null || currentX != thisX) {
 				currentX = thisX;
@@ -97,11 +97,11 @@ public class Sankey {
 			double ty = 0;
 			for (SankeyLink link : node.SourceLinks) {
 				link.sy = sy;
-				sy += link.Delta.y();
+				sy += link.Delta.y;
 			}
 			for (SankeyLink link : node.TargetLinks) {
 				link.ty = ty;
-				ty += link.Delta.y();
+				ty += link.Delta.y;
 			}
 		}
 	}
@@ -141,7 +141,7 @@ public class Sankey {
 				double x = Integer.MAX_VALUE;
 				// Get minimum location from target nodes.
 				for (SankeyLink link : node.SourceLinks)
-					x = Math.min(x, link.Target.Location.x());
+					x = Math.min(x, link.Target.Location.x);
 				// New location, one to the left: x - 1.
 				node.Location.x(x - 1);
 			}
@@ -155,7 +155,7 @@ public class Sankey {
 
 	private void scaleNodeBreadths(double kx) {
 		for (SankeyNode node : Nodes)
-			node.Location.x(node.Location.x() * kx);
+			node.Location.x(node.Location.x * kx);
 	}
 
 	// Compute the value (size) of each node by summing the associated links.

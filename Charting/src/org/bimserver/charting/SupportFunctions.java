@@ -1,7 +1,7 @@
 package org.bimserver.charting;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -60,8 +60,8 @@ import org.bimserver.models.ifc2x3tc1.IfcUnit;
 import org.bimserver.models.ifc2x3tc1.IfcUnitAssignment;
 import org.bimserver.models.ifc2x3tc1.IfcUnitEnum;
 import org.bimserver.models.store.SIPrefix;
+import org.bimserver.utils.Vector3d;
 import org.eclipse.emf.common.util.EList;
-import org.openmali.vecmath2.Vector3d;
 
 public class SupportFunctions {
 
@@ -182,7 +182,7 @@ public class SupportFunctions {
 			Vector3f max = geometry.getMaxBounds();
 			Vector3d delta = new Vector3d(max.getX() - min.getX(), max.getY() - min.getY(), max.getZ() - min.getZ());
 			// A (of rectangular prism boundary) = 2(wl + hl + hw) 
-			area = 2 * (delta.x() * delta.y() + delta.z() * delta.y() + delta.z() * delta.x());
+			area = 2 * (delta.x * delta.y + delta.z * delta.y + delta.z * delta.x);
 		}
 		return area;
 	}
@@ -195,7 +195,7 @@ public class SupportFunctions {
 			Vector3f max = geometry.getMaxBounds();
 			Vector3d delta = new Vector3d(max.getX() - min.getX(), max.getY() - min.getY(), max.getZ() - min.getZ());
 			// V (of rectangular prism boundary) = whl 
-			volume = delta.x() * delta.y() * delta.z();
+			volume = delta.x * delta.y * delta.z;
 		}
 		return volume;
 	}

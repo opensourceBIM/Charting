@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Algorithms;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import org.bimserver.charting.Containers.ChartRow;
 import org.bimserver.charting.Containers.ChartRows;
 import org.bimserver.charting.Delegates.IModulateValueDelegate;
 import org.bimserver.charting.Dimensions.ModelDimension;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class Binning {
 
@@ -212,7 +212,7 @@ public class Binning {
 	public void handlePointAndIndex(Vector2d point, Vector2d worldSpacePoint, LinkedHashMap<String, Bin> existingBins) {
 		// Distance formula: c^2 = a^2 + b^2
 		// Calculate world space y as a ratio to the delta y.
-		double py = worldSpacePoint.y() / Delta.y();
+		double py = worldSpacePoint.y / Delta.y;
 		// Derivisions from py.
 		int pj = (int)Math.round(py);
 		// Indent row if y value is not even.
@@ -220,7 +220,7 @@ public class Binning {
 		// "b" of distance formula.
 		//double bOfWorldSpaceRoundingDeviation = py - pj;
 		// Calculate world space x as a ratio to the delta x.
-		double px = worldSpacePoint.x() / Delta.x() - (pjIsNotEvenAtThisPoint ? .5 : 0);
+		double px = worldSpacePoint.x / Delta.x - (pjIsNotEvenAtThisPoint ? .5 : 0);
 		// Derivisions from px.
 		int pi = (int)Math.round(px);
 		// TODO: Figure out what this case represents. It's less of a priority because it destroys the syntactical notion of the variable "pi" (not to be confused with Math.PI) as an integer.
@@ -261,8 +261,8 @@ public class Binning {
 				thisBin.WorldSpaceLocation = new Vector2d(piNot, pj);
 				// Center in raw data as (cx, cy).
 				double modifier = (pjIsNotEvenAtThisPoint) ? 0.5 : 0;
-				double cx = (piNot + modifier) * Delta.x();
-				double cy = pj * Delta.y();
+				double cx = (piNot + modifier) * Delta.x;
+				double cy = pj * Delta.y;
 				thisBin.Location = new Vector2d(cx, cy);
 				// Add bin.
 				existingBins.put(id, thisBin);
@@ -282,8 +282,8 @@ public class Binning {
 				thisBin.WorldSpaceLocation = new Vector2d(pi, pj);
 				// Center in raw data as (cx, cy).
 				double modifier = (pjIsNotEvenAtThisPoint) ? 0.5 : 0;
-				double cx = (pi + modifier) * Delta.x();
-				double cy = pj * Delta.y();
+				double cx = (pi + modifier) * Delta.x;
+				double cy = pj * Delta.y;
 				thisBin.Location = new Vector2d(cx, cy);
 				// Add bin.
 				existingBins.put(id, thisBin);
@@ -304,7 +304,7 @@ public class Binning {
 		ArrayList<String> strings = new ArrayList<String>();
 		// Write relative points as (using periods to represent decimal points): px, py
 		for (Vector2d relativePoint : relativePoints)
-			strings.add(String.format(Locale.US, "%f,%f", new Double(relativePoint.x()), new Double(relativePoint.y())));
+			strings.add(String.format(Locale.US, "%f,%f", new Double(relativePoint.x), new Double(relativePoint.y)));
 		// Return something in format of: m px1,py1 l px2,py2 ... l pxn, pyn z
 		if (strings.size() > 0)
 			return "m " + StringUtils.join(strings, " l ") + " z";
@@ -327,8 +327,8 @@ public class Binning {
 			// Negative cosine is needed to invert the coordinate space such that -y is up.
 			double y1 = -Math.cos(angleInRadians) * distance;
 			// Calculate the difference between the start location and point 2.
-			double dx = x1 - startLocation.x();
-			double dy = y1 - startLocation.y();
+			double dx = x1 - startLocation.x;
+			double dy = y1 - startLocation.y;
 			// Update start location to be the end of the line that was just created from startLocation to (x1, y1).
 			startLocation = new Vector2d(x1, y1);
 			// Add the relative point to the list.

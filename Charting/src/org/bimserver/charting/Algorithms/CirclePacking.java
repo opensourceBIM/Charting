@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Algorithms;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.awt.geom.Rectangle2D;
@@ -29,7 +29,7 @@ import org.bimserver.charting.Containers.ChartExtent;
 import org.bimserver.charting.Containers.PackableCircle;
 import org.bimserver.charting.Containers.Rectangle;
 import org.bimserver.charting.Delegates.INodeHandler;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 import prefuse.action.layout.graph.TreeLayout;
 import prefuse.data.Graph;
@@ -249,8 +249,8 @@ public class CirclePacking extends TreeLayout implements INodeHandler {
 
 	public boolean packIntersects(PackableCircle a, PackableCircle b) {
 		// Calculate differences.
-		double dx = b.Location.x() - a.Location.x();
-		double dy = b.Location.y() - a.Location.y();
+		double dx = b.Location.x - a.Location.x;
+		double dy = b.Location.y - a.Location.y;
 		double dr = a.Radius + b.Radius;
 		// If RadiiSquared(AB) > DistanceSquared(BA), then it intersects. 
 		return 0.999 * Math.pow(dr, 2) > Math.pow(dx, 2) + Math.pow(dy, 2);
@@ -258,8 +258,8 @@ public class CirclePacking extends TreeLayout implements INodeHandler {
 
 	private void packTransform(Node node, double x, double y, double k) {
 		PackableCircle circle = getPackableCircle(node);
-		double actualX = x + k * circle.Location.x();
-		double actualY = y + k * circle.Location.y();
+		double actualX = x + k * circle.Location.x;
+		double actualY = y + k * circle.Location.y;
 		circle.Location = new Vector2d(actualX, actualY);
 		circle.Radius = k * circle.Radius;
 		int n = node.getChildCount();
@@ -271,8 +271,8 @@ public class CirclePacking extends TreeLayout implements INodeHandler {
 
 	private void packPlace(PackableCircle a, PackableCircle b, PackableCircle c) {
 		double db = a.Radius + c.Radius;
-		double dx = b.Location.x() - a.Location.x();
-		double dy = b.Location.y() - a.Location.y();
+		double dx = b.Location.x - a.Location.x;
+		double dy = b.Location.y - a.Location.y;
 		// Put C around A, but not on its same horizontal plane.
 		if (db != 0 && (dx != 0 || dy != 0)) {
 			// Squared lengths: RadiiSquared(BC), RadiiSquared(AC), and DistanceSquared(BA).
@@ -285,11 +285,11 @@ public class CirclePacking extends TreeLayout implements INodeHandler {
 			double x = 0.5 + (db - da) / normalizationFactor;
 			double y = Math.sqrt(Math.max(0, 2.0 * da * (db + dc) - (db -= dc) * db - Math.pow(da, 2))) / normalizationFactor;
 			// Set location.
-			c.Location = new Vector2d(a.Location.x() + x * dx + y * dy, a.Location.y() + x * dy - y * dx);
+			c.Location = new Vector2d(a.Location.x + x * dx + y * dy, a.Location.y + x * dy - y * dx);
 		}
 		// Put C to left or right of A. 
 		else
-			c.Location = new Vector2d(a.Location.x() + db, a.Location.y());
+			c.Location = new Vector2d(a.Location.x + db, a.Location.y);
 	}
 
 	// Ensure separation of cells in array.
@@ -385,9 +385,9 @@ public class CirclePacking extends TreeLayout implements INodeHandler {
 		for (int i = 0; i < n; i++) {
 			c = getPackableCircle(nodesInThisPass.get(i));
 			// Update location: subtract the center from the location.
-			Vector2d delta = new Vector2d(c.Location.x() - center.x(), c.Location.y() - center.y());
+			Vector2d delta = new Vector2d(c.Location.x - center.x, c.Location.y - center.y);
 			// Distance: (x^2 + y^2)^(0.5)
-			double distance = Math.sqrt(Math.pow(delta.x(), 2) + Math.pow(delta.y(), 2));
+			double distance = Math.sqrt(Math.pow(delta.x, 2) + Math.pow(delta.y, 2));
 			// Update radius.
 			cr = Math.max(cr, c.Radius + distance);
 			//

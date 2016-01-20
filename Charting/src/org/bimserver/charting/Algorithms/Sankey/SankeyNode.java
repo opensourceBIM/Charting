@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms.Sankey;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,22 +14,22 @@ package org.bimserver.charting.Algorithms.Sankey;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
 import org.bimserver.charting.Dimensions.ModelDimension;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class SankeyNode {
 
 	public static Comparator<SankeyNode> ascendingDepth = new Comparator<SankeyNode>() {
 		public int compare(SankeyNode p1, SankeyNode p2) {
 			//
-			double a = p1.Location.y();
-			double b = p2.Location.y();
+			double a = p1.Location.y;
+			double b = p2.Location.y;
 			// Sort larger values to end of collection. Sort smaller values to start of collection.
 			if (a > b)
 				return 1;
@@ -43,8 +43,8 @@ public class SankeyNode {
 	public static Comparator<SankeyNode> ascendingBreadth = new Comparator<SankeyNode>() {
 		public int compare(SankeyNode p1, SankeyNode p2) {
 			//
-			double a = p1.Location.x();
-			double b = p2.Location.x();
+			double a = p1.Location.x;
+			double b = p2.Location.x;
 			// Sort larger values to end of collection. Sort smaller values to start of collection.
 			if (a > b)
 				return 1;
@@ -66,8 +66,8 @@ public class SankeyNode {
 
 	public static Comparator<SankeyNode> advancingXValue = new Comparator<SankeyNode>() {
 		public int compare(SankeyNode p1, SankeyNode p2) {
-			double a = p1.Location.x();
-			double b = p2.Location.x();
+			double a = p1.Location.x;
+			double b = p2.Location.x;
 			// If A is farther right than B, move A towards back of list.
 			if (a > b)
 				return 1;
@@ -136,6 +136,6 @@ public class SankeyNode {
 	}
 
 	public double getCenterY() {
-		return Location.y() + Delta.y() / 2.0;
+		return Location.y + Delta.y / 2.0;
 	}
 }

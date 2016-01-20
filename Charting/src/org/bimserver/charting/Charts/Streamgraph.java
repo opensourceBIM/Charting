@@ -1,7 +1,7 @@
 package org.bimserver.charting.Charts;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Charts;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ import org.bimserver.charting.Containers.GroupedChartExtents;
 import org.bimserver.charting.Containers.TreeNode;
 import org.bimserver.charting.Dimensions.ModelDimension;
 import org.bimserver.charting.Models.StreamModel;
-import org.openmali.distance.Distance2D;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Distance2D;
+import org.bimserver.geometry.Vector2d;
 
 public class Streamgraph extends Chart {
 
@@ -152,13 +152,13 @@ public class Streamgraph extends Chart {
 			Vector2d previousPoint = null;
 			if (dataPointsCount > 0) {
 				Vector2d first = layer.points.get(0);
-				d.append(String.format("M %s, %s", first.x(), first.y()));
+				d.append(String.format("M %s, %s", first.x, first.y));
 				previousPoint = first;
 			}
 			for (int i = 1; i < dataPointsCount; i++) {
 				Vector2d point = layer.points.get(i);
-				if (Distance2D.dist((float)point.x(), (float)point.y(), (float)previousPoint.x(), (float)previousPoint.y()) != 0f) {
-					d.append(String.format(" L %s, %s", point.x(), point.y()));
+				if (Distance2D.dist((float)point.x, (float)point.y, (float)previousPoint.x, (float)previousPoint.y) != 0f) {
+					d.append(String.format(" L %s, %s", point.x, point.y));
 					previousPoint = point;
 				}
 			}
@@ -168,15 +168,15 @@ public class Streamgraph extends Chart {
 				// Get offset.
 				Vector2d textOffset = layout.getTextOffset(subChartIndex);
 				// Get anchor.
-				double horizontalOffsetPercent = Math.round(textOffset.x() / layout.xExtent.WorldSpaceEnd * 100);
+				double horizontalOffsetPercent = Math.round(textOffset.x / layout.xExtent.WorldSpaceEnd * 100);
 				String anchor = (horizontalOffsetPercent > 90) ? "end" : (horizontalOffsetPercent < 10) ? "start" : "middle";
 				// Add text element.
 				ElementLike text = new ElementLike("text");
 				text.attribute("dy", "0.5ex");
 				text.attribute("class", "label");
 				text.attribute("text-anchor", anchor);
-				text.attribute("x", String.format("%s", textOffset.x()));
-				text.attribute("y", String.format("%s", textOffset.y()));
+				text.attribute("x", String.format("%s", textOffset.x));
+				text.attribute("y", String.format("%s", textOffset.y));
 				text.attribute("font-size", "11px");
 				text.attribute("font-family", "Arial, Helvetica");
 				text.attribute("font-weight", "normal");

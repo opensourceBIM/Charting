@@ -1,7 +1,7 @@
 package org.bimserver.charting.Charts;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Charts;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ import org.bimserver.charting.Containers.GroupedChartExtents;
 import org.bimserver.charting.Containers.TreeNode;
 import org.bimserver.charting.Dimensions.ModelDimension;
 import org.bimserver.charting.Models.StreamModel;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class BumpChart extends Chart {
 
@@ -133,7 +133,7 @@ public class BumpChart extends Chart {
 		Layer[] layers = layout.layers;
 		ElementLike defs = new ElementLike("defs");
 		// Create clip path. Not used until referenced in SVG.
-		ElementLike clipPath = ElementLike.createRectangularClipPath("clip", horizontalBorderMargin, minorVerticalBorderMargin, xAxis.P2OfConstructedLine.y(), yAxis.P2OfConstructedLine.x());
+		ElementLike clipPath = ElementLike.createRectangularClipPath("clip", horizontalBorderMargin, minorVerticalBorderMargin, xAxis.P2OfConstructedLine.y, yAxis.P2OfConstructedLine.x);
 		// Add reference-capable clip path.
 		defs.child(clipPath);
 		//
@@ -180,7 +180,7 @@ public class BumpChart extends Chart {
 				// Get offset.
 				Vector2d textOffset = layout.getTextOffset(subChartIndex);
 				// Get anchor.
-				double horizontalOffsetPercent = Math.round(textOffset.x() / layout.xExtent.WorldSpaceEnd * 100);
+				double horizontalOffsetPercent = Math.round(textOffset.x / layout.xExtent.WorldSpaceEnd * 100);
 				String anchor = (horizontalOffsetPercent > 90) ? "end" : (horizontalOffsetPercent < 20) ? "start" : "middle";
 				// Add text element.
 				ElementLike text = new ElementLike("text");

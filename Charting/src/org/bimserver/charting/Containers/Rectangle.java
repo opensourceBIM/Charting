@@ -1,7 +1,7 @@
 package org.bimserver.charting.Containers;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,12 +14,12 @@ package org.bimserver.charting.Containers;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.Locale;
 
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class Rectangle {
 	public Double x1 = 0.0;
@@ -33,10 +33,10 @@ public class Rectangle {
 	 */
 	public Rectangle(Vector2d p1, Vector2d p2) {
 		super();
-		x1 = p1.x();
-		y1 = p1.y();
-		x2 = p2.x();
-		y2 = p2.y();
+		x1 = p1.x;
+		y1 = p1.y;
+		x2 = p2.x;
+		y2 = p2.y;
 	}
 
 	public Rectangle(Double x1, Double y1, Double x2, Double y2) {

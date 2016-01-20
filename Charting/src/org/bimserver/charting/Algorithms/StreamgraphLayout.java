@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Algorithms;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import org.bimserver.charting.Algorithms.StreamGraph.LayerLayout;
 import org.bimserver.charting.Algorithms.StreamGraph.LayerSort;
 import org.bimserver.charting.Algorithms.StreamGraph.StackLayout;
 import org.bimserver.charting.Containers.ChartExtent;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class StreamgraphLayout {
 
@@ -173,17 +173,17 @@ public class StreamgraphLayout {
 		double k = 1 / (double) n;
 		int i = 0;
 		double o = 0;
-		// d3: layers[i].points.get(j).y() == data[i][j][1]
+		// d3: layers[i].points.get(j).y == data[i][j][1]
 		for (int j = 0; j < m; j++) {
 			// Sum y values across layers for given point in time, j.
 			for (i = 0, o = 0; i < n; i++)
 				if (j < layers[i].points.size())
-					o += layers[i].points.get(j).y();
+					o += layers[i].points.get(j).y;
 			// If sum is not zero, rewrite y values at some time, j, to be a percent of the sum.
 			if (o != 0)
 				for (i = 0; i < n; i++)
 					if (j < layers[i].points.size())
-						layers[i].points.get(j).y(layers[i].points.get(j).y() / o);
+						layers[i].points.get(j).y(layers[i].points.get(j).y / o);
 			// Otherwise, rewrite y values at some time, j, to be n^-1 (a percent of the number of layers).
 			else
 				for (i = 0; i < n; i++)
@@ -199,7 +199,7 @@ public class StreamgraphLayout {
 			layers[i].yTop = zeroed;
 			// Zero the world-space data point.
 			for (int j = 0; j < layers[i].points.size(); j++) {
-				double y = layers[i].points.get(j).y();
+				double y = layers[i].points.get(j).y;
 				layers[i].points.get(j).y(Math.max(sizeExtent.WorldSpaceStart, y));
 			}
 		}

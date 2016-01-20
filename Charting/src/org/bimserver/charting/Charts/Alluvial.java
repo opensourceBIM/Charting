@@ -1,7 +1,7 @@
 package org.bimserver.charting.Charts;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Charts;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -151,7 +151,7 @@ public class Alluvial extends Chart {
 		for (ArrayList<SankeyNode> nodesInGroup : groupedNodes) {
 			double sum = 0.0;
 			for (SankeyNode node : nodesInGroup)
-				sum += node.Delta.y() + nodePadding;
+				sum += node.Delta.y + nodePadding;
 			double y = heightPadding + (heightMinusPadding - sum) / 2.0 + nodePadding / 2.0;
 			// Do sort.
 			if (sort.equals("name"))
@@ -161,7 +161,7 @@ public class Alluvial extends Chart {
 			// Update location.
 			for (SankeyNode node : nodesInGroup) {
 				node.Location.y(y);
-				y += node.Delta.y() + nodePadding;
+				y += node.Delta.y + nodePadding;
 			}
 		}
 		// Reorder links.
@@ -173,7 +173,7 @@ public class Alluvial extends Chart {
 					Collections.sort(node.SourceLinks, SankeyLink.ascendingTargetDepth);
 					for (SankeyLink link : node.SourceLinks) {
 						link.sy = ly;
-						ly += link.Delta.y();
+						ly += link.Delta.y;
 					}
 				}
 				{
@@ -181,7 +181,7 @@ public class Alluvial extends Chart {
 					Collections.sort(node.TargetLinks, SankeyLink.ascendingSourceDepth);
 					for (SankeyLink link : node.TargetLinks) {
 						link.ty = ly;
-						ly += link.Delta.y();
+						ly += link.Delta.y;
 					}
 				}
 			}
@@ -199,7 +199,7 @@ public class Alluvial extends Chart {
 			//
 			ElementLike path = new ElementLike("path");
 			path.attribute("d", link.link());
-			path.attribute("style", String.format("stroke-width: %s; fill: none; stroke: %s; stroke-opacity: 0.4;", link.Delta.y(), color));
+			path.attribute("style", String.format("stroke-width: %s; fill: none; stroke: %s; stroke-opacity: 0.4;", link.Delta.y, color));
 			path.attribute("class", "link");
 			//
 			ElementLike title = new ElementLike("title");
@@ -211,10 +211,10 @@ public class Alluvial extends Chart {
 		// Markers.
 		for (SankeyNode node : nodes) {
 			ElementLike rect = new ElementLike("rect");
-			rect.attribute("x", String.format("%s", node.Location.x()));
-			rect.attribute("y", String.format("%s", node.Location.y()));
-			rect.attribute("width", String.format("%s", node.Delta.x()));
-			rect.attribute("height", String.format("%s", node.Delta.y()));
+			rect.attribute("x", String.format("%s", node.Location.x));
+			rect.attribute("y", String.format("%s", node.Location.y));
+			rect.attribute("width", String.format("%s", node.Delta.x));
+			rect.attribute("height", String.format("%s", node.Delta.y));
 			rect.attribute("fill", "black");
 			//
 			ElementLike text = new ElementLike("text");
@@ -224,7 +224,7 @@ public class Alluvial extends Chart {
 			double dx = (node.SourceLinks.size() == 0) ? -halfNodeWidth : halfNodeWidth + 4;
 			text.attribute("dx", String.format("%spx", dx));
 			text.attribute("dy", "0.34em");
-			text.attribute("transform", String.format("translate(%s, %s)", node.Location.x(), node.getCenterY()));
+			text.attribute("transform", String.format("translate(%s, %s)", node.Location.x, node.getCenterY()));
 			text.text(node.Name);
 			//
 			builder.append(text.buildString(1));

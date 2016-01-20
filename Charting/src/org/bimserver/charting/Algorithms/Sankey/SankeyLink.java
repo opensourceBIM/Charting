@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms.Sankey;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,20 +14,20 @@ package org.bimserver.charting.Algorithms.Sankey;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.Comparator;
 
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Vector2d;
 
 public class SankeyLink {
 
 	public static Comparator<SankeyLink> ascendingSourceDepth = new Comparator<SankeyLink>() {
 		public int compare(SankeyLink p1, SankeyLink p2) {
 			//
-			double a = p1.Source.Location.y();
-			double b = p2.Source.Location.y();
+			double a = p1.Source.Location.y;
+			double b = p2.Source.Location.y;
 			// Sort larger values to end of collection. Sort smaller values to start of collection.
 			if (a > b)
 				return 1;
@@ -41,8 +41,8 @@ public class SankeyLink {
 	public static Comparator<SankeyLink> ascendingTargetDepth = new Comparator<SankeyLink>() {
 		public int compare(SankeyLink p1, SankeyLink p2) {
 			//
-			double a = p1.Target.Location.y();
-			double b = p2.Target.Location.y();
+			double a = p1.Target.Location.y;
+			double b = p2.Target.Location.y;
 			// Sort larger values to end of collection. Sort smaller values to start of collection.
 			if (a > b)
 				return 1;
@@ -98,12 +98,12 @@ public class SankeyLink {
 	}
 
 	public String link() {
-		double x0 = Source.Location.x() + Source.Delta.x();
-		double x1 = Target.Location.x();
+		double x0 = Source.Location.x + Source.Delta.x;
+		double x1 = Target.Location.x;
 		double x2 = lerp(Curvature, x0, x1);
 		double x3 = lerp(1 - Curvature, x0, x1);
-		double y0 = Source.Location.y() + sy + Delta.y() / 2.0;
-		double y1 = Target.Location.y() + ty + Delta.y() / 2.0;
+		double y0 = Source.Location.y + sy + Delta.y / 2.0;
+		double y1 = Target.Location.y + ty + Delta.y / 2.0;
 		return String.format("M %s, %s C %s, %s %s, %s %s, %s", x0, y0, x2, y0, x3, y1, x1, y1);
 	}
 

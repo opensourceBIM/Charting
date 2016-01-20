@@ -1,7 +1,7 @@
 package org.bimserver.charting;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.io.OutputStream;
@@ -25,9 +25,7 @@ import org.apache.commons.lang.mutable.MutableInt;
 import org.bimserver.charting.Charts.SmallMultiplesArea;
 import org.bimserver.emf.IfcModelInterface;
 import org.bimserver.emf.PackageMetaData;
-import org.bimserver.plugins.PluginManager;
 import org.bimserver.plugins.PluginManagerInterface;
-import org.bimserver.plugins.renderengine.RenderEnginePlugin;
 import org.bimserver.plugins.serializers.ProgressReporter;
 import org.bimserver.plugins.serializers.ProjectInfo;
 import org.bimserver.plugins.serializers.SerializerException;

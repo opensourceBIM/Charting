@@ -1,7 +1,7 @@
 package org.bimserver.charting.Algorithms.Sankey;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Algorithms.Sankey;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class SankeyMatrix extends LinkedHashMap<Double, ArrayList<SankeyNode>> {
 		Collections.sort(nodesSortedByAscendingBreadth, SankeyNode.ascendingBreadth);
 		// Add them.
 		for (SankeyNode node : nodesSortedByAscendingBreadth) {
-			double key = node.Location.x();
+			double key = node.Location.x;
 			if (!containsKey(key))
 				put(key, new ArrayList<SankeyNode>());
 			get(key).add(node);
@@ -142,23 +142,23 @@ public class SankeyMatrix extends LinkedHashMap<Double, ArrayList<SankeyNode>> {
 			//
 			for (i = 0; i < n; i++) {
 				node = nodes.get(i);
-				dy = y0 - node.Location.y();
+				dy = y0 - node.Location.y;
 				if (dy > 0)
-					node.Location.y(node.Location.y() + dy);
-				y0 = node.Location.y() + node.Delta.y() + nodePadding;
+					node.Location.y(node.Location.y + dy);
+				y0 = node.Location.y + node.Delta.y + nodePadding;
 			}
 			// If the bottom-most node goes outside the bounds, push it back up.
 			dy = y0 - nodePadding - height;
 			if (dy > 0) {
-				node.Location.y(node.Location.y() - dy);
-				y0 = node.Location.y();
+				node.Location.y(node.Location.y - dy);
+				y0 = node.Location.y;
 				// Push any overlapping nodes back up.
 				for (i = n - 2; i >= 0; i--) {
 					node = nodes.get(i);
-					dy = node.Location.y() + node.Delta.y() + nodePadding - y0;
+					dy = node.Location.y + node.Delta.y + nodePadding - y0;
 					if (dy > 0)
-						node.Location.y(node.Location.y() - dy);
-					y0 = node.Location.y();
+						node.Location.y(node.Location.y - dy);
+					y0 = node.Location.y;
 				}
 			}
 		}

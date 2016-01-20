@@ -1,7 +1,7 @@
 package org.bimserver.charting.Containers;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@ package org.bimserver.charting.Containers;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.text.SimpleDateFormat;
@@ -24,8 +24,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import org.openmali.vecmath2.Colord;
-import org.openmali.vecmath2.Vector2d;
+import org.bimserver.geometry.Colord;
+import org.bimserver.geometry.Vector2d;
 
 public class Axis {
 

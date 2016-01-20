@@ -1,7 +1,7 @@
 package org.bimserver.charting.Dimensions;
 
 /******************************************************************************
- * Copyright (C) 2009-2015  BIMserver.org
+ * Copyright (C) 2009-2016  BIMserver.org
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -14,12 +14,14 @@ package org.bimserver.charting.Dimensions;
  * GNU Affero General Public License for more details.
  * 
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see {@literal<http://www.gnu.org/licenses/>}.
  *****************************************************************************/
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+
+import org.bimserver.charting.Models.Model;
 
 /**
  * Provides a class that consumes 1 or more keys in a data entry, yielding a correctly named entry. This class does not store data. In densitydesign/raw, objects of the analogous class are used directly as functions, like: dimensionObject(fullDataEntryInSet). After the use, the data is translated into just the applicable data. So, the first element of [{'A': 1, 'B': '2', 'C': 3}, ...] pushed into some dimension, "X", that looks for key "A" would yield the value: 1. In this version, this functionality is covered by {@link ModelDimension#filterDataEntry ModelDimension.filterDataEntry}.
