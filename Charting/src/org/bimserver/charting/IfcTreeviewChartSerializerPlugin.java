@@ -29,18 +29,11 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IfcTreeviewChartSerializerPlugin extends AbstractSerializerPlugin {
 
-	private boolean initialized = false;
-
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		TreeviewChartSerializer serializer = new TreeviewChartSerializer();
 		serializer.title = getDefaultName();
 		return serializer;
-	}
-
-	@Override
-	public boolean needsGeometry() {
-		return true;
 	}
 
 	@Override
@@ -50,27 +43,11 @@ public class IfcTreeviewChartSerializerPlugin extends AbstractSerializerPlugin {
 
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "IFC Treeview Chart (SVG)";
 	}
 
 	@Override
 	public String getDefaultName() {
 		return "IFC Treeview Chart";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override

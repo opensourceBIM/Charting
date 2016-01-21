@@ -29,8 +29,6 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IfcPackingChartSerializerPlugin extends AbstractSerializerPlugin {
 
-	private boolean initialized = false;
-
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		PackingChartSerializer serializer = new PackingChartSerializer();
@@ -40,38 +38,17 @@ public class IfcPackingChartSerializerPlugin extends AbstractSerializerPlugin {
 	}
 
 	@Override
-	public boolean needsGeometry() {
-		return true;
-	}
-
-	@Override
 	public Set<Schema> getSupportedSchemas() {
 		return Schema.IFC2X3TC1.toSet();
 	}
 
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "IFC Circle Packing Map by Area Chart (SVG)";
 	}
 
 	@Override
 	public String getDefaultName() {
 		return "IFC Circle Packing Chart";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override

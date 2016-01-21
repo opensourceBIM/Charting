@@ -29,18 +29,11 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IfcRadialDendrogramChartSerializerPlugin extends AbstractSerializerPlugin {
 
-	private boolean initialized = false;
-
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		RadialDendrogramChartSerializer serializer = new RadialDendrogramChartSerializer();
 		serializer.title = getDefaultName();
 		return serializer;
-	}
-
-	@Override
-	public boolean needsGeometry() {
-		return true;
 	}
 
 	@Override
@@ -50,27 +43,11 @@ public class IfcRadialDendrogramChartSerializerPlugin extends AbstractSerializer
 
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "IFC Radial Dendrogram Chart (SVG)";
 	}
 
 	@Override
 	public String getDefaultName() {
 		return "IFC Radial Dendrogram Chart";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override

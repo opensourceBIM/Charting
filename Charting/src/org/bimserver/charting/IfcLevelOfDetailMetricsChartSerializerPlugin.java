@@ -29,8 +29,6 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IfcLevelOfDetailMetricsChartSerializerPlugin extends AbstractSerializerPlugin {
 
-	private boolean initialized = false;
-
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		LevelOfDetailMetricsChartSerializer serializer = new LevelOfDetailMetricsChartSerializer();
@@ -43,38 +41,17 @@ public class IfcLevelOfDetailMetricsChartSerializerPlugin extends AbstractSerial
 	}
 
 	@Override
-	public boolean needsGeometry() {
-		return true;
-	}
-
-	@Override
 	public Set<Schema> getSupportedSchemas() {
 		return Schema.IFC2X3TC1.toSet();
 	}
 
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "IFC Level of Detail Metrics Chart (SVG)";
 	}
 
 	@Override
 	public String getDefaultName() {
 		return "IFC Level of Detail Metrics Chart";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override

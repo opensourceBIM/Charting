@@ -29,18 +29,11 @@ import org.bimserver.shared.exceptions.PluginException;
 
 public class IfcClusterForceChartSerializerPlugin extends AbstractSerializerPlugin {
 
-	private boolean initialized = false;
-
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		ClusterForceChartSerializer serializer = new ClusterForceChartSerializer();
 		serializer.title = getDefaultName();
 		return serializer;
-	}
-
-	@Override
-	public boolean needsGeometry() {
-		return true;
 	}
 
 	@Override
@@ -50,27 +43,11 @@ public class IfcClusterForceChartSerializerPlugin extends AbstractSerializerPlug
 
 	@Override
 	public void init(PluginManagerInterface pluginManager) throws PluginException {
-		initialized = true;
-	}
-
-	@Override
-	public String getDescription() {
-		return "IFC Cluster Force Chart (SVG)";
 	}
 
 	@Override
 	public String getDefaultName() {
 		return "IFC Cluster Force Chart";
-	}
-
-	@Override
-	public String getVersion() {
-		return "1.0";
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
 	}
 
 	@Override
