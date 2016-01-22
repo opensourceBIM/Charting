@@ -103,6 +103,12 @@
 			</build>
 		</profile>
 	</profiles>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
@@ -122,7 +128,7 @@
 		<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>pluginbase</artifactId>
-			<version>1.5.13</version>
+			<version>1.5.15</version>
 		</dependency>
 	</dependencies>
 	<distributionManagement>
