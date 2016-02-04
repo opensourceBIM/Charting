@@ -1,75 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PluginDescriptor>
-	<PluginImplementation>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcTreemapChartSerializerPlugin</implementationClass>
 		<description>IFC Treemap by Area Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcPackingChartSerializerPlugin</implementationClass>
 		<description>IFC Circle Packing Map by Area Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcTreeviewChartSerializerPlugin</implementationClass>
 		<description>IFC Treeview Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcDepthClusteredTreeviewChartSerializerPlugin</implementationClass>
 		<description>IFC Depth-Clustered Treeview Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcRadialDendrogramChartSerializerPlugin</implementationClass>
 		<description>IFC Radial Dendrogram Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcClusterForceChartSerializerPlugin</implementationClass>
 		<description>IFC Cluster Force Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcClassPackingChartSerializerPlugin</implementationClass>
 		<description>IFC Class Circle Packing by Count Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcClassificationPackingChartSerializerPlugin</implementationClass>
 		<description>IFC Classification Circle Packing by Count Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcMaterialUsageChartSerializerPlugin</implementationClass>
 		<description>IFC Material Usage by Volume Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcMaterialUsageOwnScaleChartSerializerPlugin</implementationClass>
 		<description>IFC Material Usage by Volume with Own Scale Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcRawMaterialUsageChartSerializerPlugin</implementationClass>
 		<description>IFC Raw Material Usage by Volume Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
-	<PluginImplementation>
+	</JavaPlugin>
+	<JavaPlugin>
 		<interfaceClass>org.bimserver.plugins.serializers.SerializerPlugin</interfaceClass>
 		<implementationClass>org.bimserver.charting.IfcLevelOfDetailMetricsChartSerializerPlugin</implementationClass>
 		<description>IFC Level of Detail Metrics Chart (SVG)</description>
-		<enabled>true</enabled>
-	</PluginImplementation>
+	</JavaPlugin>
 </PluginDescriptor>
