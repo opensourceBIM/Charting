@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 import org.bimserver.charting.Charts.Treemap;
 import org.bimserver.emf.IfcModelInterface;
-import org.bimserver.emf.PackageMetaData;
 import org.bimserver.plugins.PluginManagerInterface;
 import org.bimserver.plugins.serializers.ProgressReporter;
 import org.bimserver.plugins.serializers.ProjectInfo;
@@ -37,8 +36,8 @@ public class TreemapChartSerializer extends ChartEmfSerializer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TreemapChartSerializer.class);
 
 	@Override
-	public void init(IfcModelInterface model, ProjectInfo projectInfo, PluginManagerInterface pluginManager, PackageMetaData packageMetaData, boolean normalizeOids) throws SerializerException {
-		super.init(model, projectInfo, pluginManager, packageMetaData, normalizeOids);
+	public void init(IfcModelInterface model, ProjectInfo projectInfo, PluginManagerInterface pluginManager, boolean normalizeOids) throws SerializerException {
+		super.init(model, projectInfo, pluginManager, normalizeOids);
 		// Pick chart.
 		chart = new Treemap();
 		integrateSettings();

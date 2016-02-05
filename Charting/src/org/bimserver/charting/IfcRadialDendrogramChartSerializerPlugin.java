@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -31,8 +31,7 @@ public class IfcRadialDendrogramChartSerializerPlugin extends AbstractSerializer
 
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
-		RadialDendrogramChartSerializer serializer = new RadialDendrogramChartSerializer();
-		serializer.title = getDefaultName();
+		RadialDendrogramChartSerializer serializer = new RadialDendrogramChartSerializer("IfcRadialDendrogramChartSerializerPlugin");
 		return serializer;
 	}
 
@@ -42,12 +41,7 @@ public class IfcRadialDendrogramChartSerializerPlugin extends AbstractSerializer
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Radial Dendrogram Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

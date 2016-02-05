@@ -23,7 +23,7 @@ import org.bimserver.charting.ColorScales.LinearColorScale;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -33,7 +33,7 @@ public class IfcClassPackingChartSerializerPlugin extends AbstractSerializerPlug
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		ClassPackingChartSerializer serializer = new ClassPackingChartSerializer();
-		serializer.title = getDefaultName();
+		serializer.title = "IfcClassPackingChartSerializerPlugin";
 		serializer.addOption("Padding", 3);
 		serializer.addOption("Color Scale", new LinearColorScale());
 		serializer.addOption("Look Back X Classes", 0);
@@ -46,12 +46,7 @@ public class IfcClassPackingChartSerializerPlugin extends AbstractSerializerPlug
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Class Circle Packing Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

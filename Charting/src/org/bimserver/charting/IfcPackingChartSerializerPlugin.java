@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -32,7 +32,7 @@ public class IfcPackingChartSerializerPlugin extends AbstractSerializerPlugin {
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		PackingChartSerializer serializer = new PackingChartSerializer();
-		serializer.title = getDefaultName();
+		serializer.title = "IfcPackingChartSerializerPlugin";
 		serializer.addOption("Padding", 0);
 		return serializer;
 	}
@@ -43,12 +43,7 @@ public class IfcPackingChartSerializerPlugin extends AbstractSerializerPlugin {
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Circle Packing Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

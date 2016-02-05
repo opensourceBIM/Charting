@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -32,7 +32,7 @@ public class IfcTreemapChartSerializerPlugin extends AbstractSerializerPlugin {
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		TreemapChartSerializer serializer = new TreemapChartSerializer();
-		serializer.title = getDefaultName();
+		serializer.title = "IfcTreemapChartSerializerPlugin";
 		serializer.addOption("Width", 7500);
 		serializer.addOption("Height", 5000);
 		return serializer;
@@ -44,12 +44,7 @@ public class IfcTreemapChartSerializerPlugin extends AbstractSerializerPlugin {
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Treemap Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

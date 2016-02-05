@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -32,7 +32,7 @@ public class IfcDepthClusteredTreeviewChartSerializerPlugin extends AbstractSeri
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		DepthClusteredTreeviewChartSerializer serializer = new DepthClusteredTreeviewChartSerializer();
-		serializer.title = getDefaultName();
+		serializer.title = "IfcDepthClusteredTreeviewChartSerializerPlugin";
 		return serializer;
 	}
 
@@ -42,12 +42,7 @@ public class IfcDepthClusteredTreeviewChartSerializerPlugin extends AbstractSeri
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Depth-Clustered Treeview Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override

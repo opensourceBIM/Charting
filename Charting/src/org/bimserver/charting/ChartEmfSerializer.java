@@ -84,11 +84,4 @@ public abstract class ChartEmfSerializer extends EmfSerializer {
 					return option.getValue();
 		return null;
 	}
-
-	@Override
-	public void reset() {
-		if (rawData != null)
-			rawData.clear();
-		setMode(Mode.BODY);
-	}
 }

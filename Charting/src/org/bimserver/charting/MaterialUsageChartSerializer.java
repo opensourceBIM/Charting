@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import org.apache.commons.lang.mutable.MutableInt;
 import org.bimserver.charting.Charts.SmallMultiplesArea;
 import org.bimserver.emf.IfcModelInterface;
-import org.bimserver.emf.PackageMetaData;
 import org.bimserver.plugins.PluginManagerInterface;
 import org.bimserver.plugins.serializers.ProgressReporter;
 import org.bimserver.plugins.serializers.ProjectInfo;
@@ -38,8 +37,8 @@ public class MaterialUsageChartSerializer extends ChartEmfSerializer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MaterialUsageChartSerializer.class);
 
 	@Override
-	public void init(IfcModelInterface model, ProjectInfo projectInfo, PluginManagerInterface pluginManager, PackageMetaData packageMetaData, boolean normalizeOids) throws SerializerException {
-		super.init(model, projectInfo, pluginManager, packageMetaData, normalizeOids);
+	public void init(IfcModelInterface model, ProjectInfo projectInfo, PluginManagerInterface pluginManager, boolean normalizeOids) throws SerializerException {
+		super.init(model, projectInfo, pluginManager, normalizeOids);
 		// Pick chart.
 		chart = new SmallMultiplesArea();
 		integrateSettings();

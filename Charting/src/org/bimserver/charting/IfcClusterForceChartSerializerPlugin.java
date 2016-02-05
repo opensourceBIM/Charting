@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bimserver.emf.Schema;
 import org.bimserver.models.store.ObjectDefinition;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginManagerInterface;
+import org.bimserver.plugins.PluginContext;
 import org.bimserver.plugins.serializers.AbstractSerializerPlugin;
 import org.bimserver.plugins.serializers.Serializer;
 import org.bimserver.shared.exceptions.PluginException;
@@ -32,7 +32,7 @@ public class IfcClusterForceChartSerializerPlugin extends AbstractSerializerPlug
 	@Override
 	public Serializer createSerializer(PluginConfiguration plugin) {
 		ClusterForceChartSerializer serializer = new ClusterForceChartSerializer();
-		serializer.title = getDefaultName();
+		serializer.title = "IfcClusterForceChartSerializerPlugin";
 		return serializer;
 	}
 
@@ -42,12 +42,7 @@ public class IfcClusterForceChartSerializerPlugin extends AbstractSerializerPlug
 	}
 
 	@Override
-	public void init(PluginManagerInterface pluginManager) throws PluginException {
-	}
-
-	@Override
-	public String getDefaultName() {
-		return "IFC Cluster Force Chart";
+	public void init(PluginContext pluginContext) throws PluginException {
 	}
 
 	@Override
