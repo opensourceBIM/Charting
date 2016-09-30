@@ -60,4 +60,9 @@ public class IfcPackingChartSerializerPlugin extends AbstractSerializerPlugin {
 	public ObjectDefinition getSettingsDefinition() {
 		return super.getSettingsDefinition();
 	}
+	
+	@Override
+	public String getOutputFormat(Schema schema) {
+		return null;
+	}
 }

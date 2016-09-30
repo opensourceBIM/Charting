@@ -63,4 +63,9 @@ public class IfcLevelOfDetailMetricsChartSerializerPlugin extends AbstractSerial
 	public ObjectDefinition getSettingsDefinition() {
 		return super.getSettingsDefinition();
 	}
+	
+	@Override
+	public String getOutputFormat(Schema schema) {
+		return null;
+	}
 }

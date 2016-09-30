@@ -61,4 +61,9 @@ public class IfcMaterialUsageChartSerializerPlugin extends AbstractSerializerPlu
 	public ObjectDefinition getSettingsDefinition() {
 		return super.getSettingsDefinition();
 	}
+	
+	@Override
+	public String getOutputFormat(Schema schema) {
+		return null;
+	}
 }

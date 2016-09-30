@@ -58,5 +58,10 @@ public class IfcDepthClusteredTreeviewChartSerializerPlugin extends AbstractSeri
 	@Override
 	public ObjectDefinition getSettingsDefinition() {
 		return super.getSettingsDefinition();
+	}	
+	
+	@Override
+	public String getOutputFormat(Schema schema) {
+		return null;
 	}
 }
